@@ -13,13 +13,30 @@ public class RTSPlayer : NetworkBehaviour
 
     [SyncVar(hook = nameof(ClientHandleMoneyUpdated))]//This int is being synced to all clients. Whenever it changes
     private int money = 500;                          //it calls a method called "ClientHandleMoneyUpdated"
+    [SyncVar(hook = nameof(AuthorityHandlePartyOwnerStateUpdated))]
+    private bool isPartyOwner = false;
+    [SyncVar(hook = nameof(ClientHandleDisplayNameUpdated))]
+    private string displayName; 
 
     public event Action<int> moneyUpdated;
+
+    public static event Action ClientInfoUpdated;
+    public static event Action<bool> AuthorityOnPartyOwnerStateUpdated;
 
 
     private Color teamColor = new Color();
     private List<Unit> myUnits = new List<Unit>();
     private List<Building> myBuildings = new List<Building>();
+
+    public bool IsPartyOwner()
+    {
+        return this.isPartyOwner;
+    }
+
+    public string GetDisplayName()
+    {
+        return this.displayName;
+    }
 
     public Transform GetCameraTransform() 
     {
@@ -69,6 +86,8 @@ public class RTSPlayer : NetworkBehaviour
         Unit.UnitDespawned += ServerHandlerUnitDespawned;
         Building.BuildingSpawned += ServerHandleBuildingSpawned;
         Building.BuildingDespawned += ServerHandleBuildingDespawned;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public override void OnStopServer() // if a unit has been spawned/despawned, it runs a method for it
@@ -79,6 +98,15 @@ public class RTSPlayer : NetworkBehaviour
         Building.BuildingDespawned -= ServerHandleBuildingDespawned;
     }
 
+    public void SetDisplayName(string name)
+    {
+        this.displayName = name;
+    }
+
+    public void SetPartyOwner(bool state)
+    {
+        this.isPartyOwner = state;
+    }
     public void SetMoney(int newMoney)
     {
         if (!isServer) { return; }
@@ -89,6 +117,14 @@ public class RTSPlayer : NetworkBehaviour
     {
         if (!isServer) { return; }
         this.teamColor = color;
+    }
+
+    [Command]
+    public void CmdStartGame()
+    {
+        if (!isPartyOwner) { return; }
+
+        ((MyNetworkManager)NetworkManager.singleton).StartGame();
     }
 
     [Command] // "command" attribute is used for a client to tell the server to do whatever is in the method
@@ -162,9 +198,25 @@ public class RTSPlayer : NetworkBehaviour
         Building.ClientBuildingDespawned += ClientHandleBuildingDespawned;   //know if a building is spawned/despawned
     }
 
+    public override void OnStartClient()
+    {
+        if (NetworkServer.active) { return; }
+
+        DontDestroyOnLoad(gameObject);
+
+        ((MyNetworkManager)NetworkManager.singleton).players.Add(this);
+
+    }
+
     public override void OnStopClient() // this method is being called when a client(with authority) no longer connected
     {
-        if (!isClientOnly || !hasAuthority) { return; }
+        ClientInfoUpdated?.Invoke();
+
+        if (!isClientOnly) { return; }
+
+        ((MyNetworkManager)NetworkManager.singleton).players.Remove(this);
+
+        if (!hasAuthority) { return; }
 
         Unit.ClientUnitSpawned -= ClientHandlerUnitSpawned;     //stop listening to events that tell us 
         Unit.ClientUnitDespawned -= ClientHandlerUnitDespawned; //if a unit is spawned/despawned
@@ -173,11 +225,22 @@ public class RTSPlayer : NetworkBehaviour
         Building.ClientBuildingDespawned -= ClientHandleBuildingDespawned;   //if a building is spawned/despawned
     }
 
+    private void ClientHandleDisplayNameUpdated(string oldDisplayName, string newDisplayName)
+    {
+        ClientInfoUpdated?.Invoke();
+    }
+
     private void ClientHandleMoneyUpdated(int oldMoney, int newMoney) // being called whenever the health is updated
     {
         moneyUpdated?.Invoke(newMoney);
     }
 
+    private void AuthorityHandlePartyOwnerStateUpdated(bool oldState, bool newState)
+    {
+        if (!hasAuthority) { return; }
+
+        AuthorityOnPartyOwnerStateUpdated?.Invoke(newState);
+    }
 
     private void ClientHandlerUnitSpawned(Unit unit) // when a unit spawns, it adds it to the list of spawned units
     {

@@ -22,6 +22,8 @@ public class UnitSelectionHandler : MonoBehaviour
     {
         mainCamera = Camera.main;
 
+        player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
+
         Unit.ClientUnitDespawned += HandleUnitDespawned; // listening to see if a unit has despawned
         GameOverHandler.ClientGameOver += ClientHandleGameOver; // listening to see if game is over
     }
@@ -34,10 +36,6 @@ public class UnitSelectionHandler : MonoBehaviour
 
     private void Update() // "update" method is being called every frame. this is where we do our constant checking if the mouse is pressed
     {
-        if(player == null)
-        {                                                                               //
-            player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();       //temporary
-        }                                                                               //
         if(Mouse.current.leftButton.wasPressedThisFrame)
         {
             ClearSelectedUnits();

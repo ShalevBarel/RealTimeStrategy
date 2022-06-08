@@ -10,19 +10,13 @@ public class MoneyUI : MonoBehaviour
 
     private RTSPlayer player;
 
-    private void Update() // is called every frame
+    private void Start()
     {
-        if (player == null)
-        {
-            player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
+        player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
 
-            if (player != null)
-            {
-                HandleMoneyUpdated(player.GetMoney());    //
-                                                          // if money is updated run a method accordingly
-                player.moneyUpdated += HandleMoneyUpdated;//
-            }
-        }
+        HandleMoneyUpdated(player.GetMoney());    //
+                                                  // if money is updated run a method accordingly
+        player.moneyUpdated += HandleMoneyUpdated;//
     }
 
     private void OnDestroy()

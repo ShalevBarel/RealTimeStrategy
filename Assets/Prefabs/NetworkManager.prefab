@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4287272807817721187}
   - component: {fileID: 4287272807817721184}
   - component: {fileID: 4287272807817721185}
-  - component: {fileID: 4287272807817721190}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -50,7 +49,7 @@ MonoBehaviour:
   autoStartServerBuild: 1
   serverTickRate: 30
   offlineScene: Assets/Scenes/Scene_Menu.unity
-  onlineScene: Assets/Scenes/Scene_Map.unity
+  onlineScene: 
   transport: {fileID: 4287272807817721185}
   networkAddress: localhost
   maxConnections: 100
@@ -59,13 +58,19 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs:
-  - {fileID: 2868911818693307649, guid: dcde21f39ac941b45aa71cbc375271d8, type: 3}
   - {fileID: 8281963835014279325, guid: 9e6aa041255753344af1d4dc24903693, type: 3}
-  - {fileID: 4618885585929435226, guid: 5d617928f6a34194b83b93b382c2a957, type: 3}
   - {fileID: 7647212192111880599, guid: 91467a85f06ff0845becd1a0b8e9e2c2, type: 3}
-  - {fileID: 8281963835014279325, guid: dbd6892c5a55a9a418804aa9a65943ed, type: 3}
   - {fileID: 8281963835014279325, guid: ea6390441d3d46340abb8c763088bf1f, type: 3}
-  unitPrefabSpawner: {fileID: 8281963835014279325, guid: 9e6aa041255753344af1d4dc24903693, type: 3}
+  - {fileID: 4803166601712606852, guid: 40d5d0f3b0028d94086698fa05211677, type: 3}
+  - {fileID: 3808013077126932181, guid: 28e19e1fdf3b39e4287c35b971ef8df5, type: 3}
+  - {fileID: 3937816240720101083, guid: 9bb2e0ba77d499144b090be16cce4b5b, type: 3}
+  - {fileID: 2504684895722620151, guid: de04ebec20d33914788e14614e0ad9ca, type: 3}
+  - {fileID: 4999984074832712741, guid: 4e473377cda474d4d8b2fffabbb8c827, type: 3}
+  - {fileID: 3737778504950407898, guid: 5d7aa3017266cdb42a000599c16a8885, type: 3}
+  - {fileID: 5709571955083585626, guid: 265b9e184462c584d9df7758625e699d, type: 3}
+  - {fileID: 4998343961406345277, guid: 4bd3dfa0d187f194db09a3540a65b73f, type: 3}
+  - {fileID: 165687197455040171, guid: ab059753b9befe6418b9d01d19fdc978, type: 3}
+  unitBasePrefab: {fileID: 8281963835014279325, guid: 9e6aa041255753344af1d4dc24903693, type: 3}
   gameOverHandlerPrefab: {fileID: 5824981463110297875, guid: 91467a85f06ff0845becd1a0b8e9e2c2, type: 3}
 --- !u!114 &4287272807817721185
 MonoBehaviour:
@@ -91,17 +96,3 @@ MonoBehaviour:
   clientMaxReceivesPerTick: 1000
   clientSendQueueLimit: 10000
   clientReceiveQueueLimit: 10000
---- !u!114 &4287272807817721190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4287272807817721191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offsetX: 0
-  offsetY: 0
