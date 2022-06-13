@@ -41,6 +41,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallUnitSpawnerPreview
       objectReference: {fileID: 0}
+    - target: {fileID: 3779815065933142590, guid: 0fffdeca834b20845bacf9c421264140, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4514963207299556803, guid: 0fffdeca834b20845bacf9c421264140, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -141,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3227026985580931465, guid: dbd6892c5a55a9a418804aa9a65943ed, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.33
+      value: 4.06
       objectReference: {fileID: 0}
     - target: {fileID: 3227026985580931467, guid: dbd6892c5a55a9a418804aa9a65943ed, type: 3}
       propertyPath: m_IsActive
@@ -185,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4684240321093579004, guid: dbd6892c5a55a9a418804aa9a65943ed, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5.65
+      value: 4.84
       objectReference: {fileID: 0}
     - target: {fileID: 5347537653877272662, guid: dbd6892c5a55a9a418804aa9a65943ed, type: 3}
       propertyPath: m_RootOrder

@@ -38,7 +38,7 @@ public class GameOverHandler : NetworkBehaviour
 
         if(bases.Count != 1) { return; }
 
-        int winnerID = bases[0].connectionToClient.connectionId;
+        int winnerID = bases[0].connectionToClient.connectionId + 1;
 
         RpcGameOver($"Player {winnerID}");
 
