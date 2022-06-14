@@ -22,7 +22,7 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler // "IPointerCl
     [SyncVar(hook = nameof(ClientHandleQueuedUnitsUpdated))]
     private int queuedUnits;
     [SyncVar]
-    private float UnitTimer;
+    private float UnitTimer = 0;
 
     private void Update()
     {
@@ -101,9 +101,12 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler // "IPointerCl
 
     private void UpdateTimerDisplay()
     {
+
         float newProgress = UnitTimer / unitSpawnDuration;
 
-        if(newProgress < UnitProgressImage.fillAmount)
+        if (UnitProgressImage == null) { return; } // avoid unneccesary error
+
+        if (newProgress < UnitProgressImage.fillAmount)
         {
             UnitProgressImage.fillAmount = newProgress;
         }

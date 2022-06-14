@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -752,6 +752,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4287272807817721184, guid: 271ae56431064e241a453feb0f080b5d, type: 3}
+      propertyPath: transport
+      value: 
+      objectReference: {fileID: 896209188}
     - target: {fileID: 4287272807817721187, guid: 271ae56431064e241a453feb0f080b5d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -800,7 +804,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4287272807817721185, guid: 271ae56431064e241a453feb0f080b5d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 271ae56431064e241a453feb0f080b5d, type: 3}
 --- !u!1 &261755070
 GameObject:
@@ -1997,6 +2002,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &896209187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4287272807817721191, guid: 271ae56431064e241a453feb0f080b5d, type: 3}
+  m_PrefabInstance: {fileID: 217477308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &896209188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896209187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Port: 7777
+  DualMode: 1
+  NoDelay: 1
+  Interval: 10
+  Timeout: 10000
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 4096
+  ReceiveWindowSize: 4096
+  MaxRetransmit: 40
+  NonAlloc: 1
+  MaximizeSendReceiveBuffersToOSLimit: 1
+  ReliableMaxMessageSize: 298449
+  UnreliableMaxMessageSize: 1199
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
 --- !u!1 &977127294
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class JoinLobbyMenu : MonoBehaviour
 
     private void OnEnable()
     {
+
+        Debug.Log("This line is running");
         MyNetworkManager.ClientOnConnected += HandleClientConnected;
         MyNetworkManager.ClientOnDisconnected += HandleClientDisconnected;
     }

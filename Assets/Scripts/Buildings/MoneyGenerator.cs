@@ -30,6 +30,8 @@ public class MoneyGenerator : NetworkBehaviour
     //[Server]
     private void Update() // is called every frame
     {
+        if (player == null) { return; } // avoid unneccesary error
+
         timer -= Time.deltaTime; // deltaTime is used for it to work even for people with different fps
 
         if(timer <= 0) // when timer hits 0 give the player money and set the timer back
