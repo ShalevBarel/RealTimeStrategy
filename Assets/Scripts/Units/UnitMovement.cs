@@ -21,7 +21,6 @@ public class UnitMovement : NetworkBehaviour
         GameOverHandler.GameOver -= HandleGameOver;
     }
 
-    //[ServerCallback]
     private void Update() // "update" method is being called every frame. this is where we do our constant checking if the player has already arrived and doesnt need to keep trying to move
     {
         Targetable target = targeter.GetTarget();
@@ -53,7 +52,6 @@ public class UnitMovement : NetworkBehaviour
         ServerMove(position);
     }
 
-    //[Server]
     public void ServerMove(Vector3 position)
     {
         targeter.ClearTarget();
@@ -63,7 +61,6 @@ public class UnitMovement : NetworkBehaviour
         agent.SetDestination(hit.position);                                                           //
     }
 
-    //[Server]
     private void HandleGameOver()
     {
         agent.ResetPath();

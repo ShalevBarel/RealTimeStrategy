@@ -28,17 +28,12 @@ public class UnitBase : NetworkBehaviour
         health.SomehtingDied -= HandleBaseDestroyed; // stops listening to an event telling if the unit has died
     }
 
-    //[Server]
     private void HandleBaseDestroyed() // destroying the base
     {
         PlayerDied?.Invoke(connectionToClient.connectionId);
 
         NetworkServer.Destroy(gameObject);
     }
-
-    #endregion
-
-    #region Client
 
     #endregion
 }

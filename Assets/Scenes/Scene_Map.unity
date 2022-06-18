@@ -2920,7 +2920,7 @@ GameObject:
   - component: {fileID: 1687258582}
   - component: {fileID: 1687258586}
   - component: {fileID: 1687258583}
-  - component: {fileID: 1687258587}
+  - component: {fileID: 1687258588}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3042,7 +3042,7 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &1687258587
+--- !u!114 &1687258588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3051,31 +3051,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1687258581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Script: {fileID: 11500000, guid: deedc5fa185ee61459d40f945d84b057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
-    m_CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  moveSpeed: 40
+  scrollSpeed: 1000
 --- !u!1001 &1690394037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3556,7 +3536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4772078608693069554, guid: 741924463409b354cb23c2b97e962cf2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000059366
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 4772078608693069554, guid: 741924463409b354cb23c2b97e962cf2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3910,11 +3890,16 @@ PrefabInstance:
       propertyPath: mapScale
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 8428801994341214167, guid: 8676ad4d004478343b43b573fb804fb8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8467682104080640594, guid: 8676ad4d004478343b43b573fb804fb8, type: 3}
       propertyPath: m_Name
       value: MiniMapDisplay
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8428801994341214167, guid: 8676ad4d004478343b43b573fb804fb8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8676ad4d004478343b43b573fb804fb8, type: 3}
 --- !u!1001 &6181846225088775514
 PrefabInstance:

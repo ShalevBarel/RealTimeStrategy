@@ -1,6 +1,4 @@
 using Mirror;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletFireAnimation : NetworkBehaviour
@@ -20,7 +18,6 @@ public class BulletFireAnimation : NetworkBehaviour
         Invoke(nameof(DestroySelf), destroyAfterSeconds); // destroy bullet after 5 seconds
     }
 
-    //[ServerCallback]
     private void OnTriggerEnter(Collider other) // this built in method gets called whenever the bullet hits something
     {
         if(other.TryGetComponent<NetworkIdentity>(out NetworkIdentity networkIdentity))
@@ -36,7 +33,6 @@ public class BulletFireAnimation : NetworkBehaviour
         DestroySelf();
     }
 
-    //[Server]
     public void DestroySelf()
     {
         NetworkServer.Destroy(gameObject); // destroy bullet

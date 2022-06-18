@@ -1,6 +1,4 @@
 using Mirror;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitFiring : NetworkBehaviour
@@ -15,7 +13,6 @@ public class UnitFiring : NetworkBehaviour
     private Targetable target;
     private float lastFireTime;
 
-    //[ServerCallback]
     private void Update() // "update" method is being called every frame. this is where we do our constant checking if the player has a target that can be shot at
     {
         target = targeter.GetTarget();
@@ -40,7 +37,6 @@ public class UnitFiring : NetworkBehaviour
         }
     }
 
-    //[Server]
     private bool CanFireAtTarget() // checking if at firing range
     {
         return Vector3.Distance(transform.position, target.transform.position) <= fireRange;

@@ -1,12 +1,10 @@
 using Mirror;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UnitSpawner : NetworkBehaviour, IPointerClickHandler // "IPointerClickHandler" helpsus to know if someone clicked the object this script is attached to
+public class UnitSpawner : NetworkBehaviour, IPointerClickHandler // "IPointerClickHandler" helps us to know if someone clicked the object this script is attached to
 {
     [SerializeField] private Health health = null;
     [SerializeField] private Unit unitPrefab = null;
@@ -49,8 +47,6 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler // "IPointerCl
         health.SomehtingDied -= HandleSomethingDied; // stops listening to an event telling if the unit spawner has died
     }
 
-
-    //[Server]
     private void ProduceUnits()
     {
         if(queuedUnits == 0) { return; }
@@ -75,7 +71,7 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler // "IPointerCl
         UnitTimer = 0;
         
     }
-    //[Server]
+
     private void HandleSomethingDied() // if player died destroy this object
     {
         NetworkServer.Destroy(gameObject);
@@ -127,7 +123,6 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler // "IPointerCl
         {
             CmdSpawnUnit();
         }
-
     }
 
     #endregion

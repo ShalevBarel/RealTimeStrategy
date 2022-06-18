@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5683067029041687041}
   - component: {fileID: 5721053981770850833}
   - component: {fileID: -453603983752806565}
-  - component: {fileID: 4303489715255431731}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -75,25 +74,6 @@ MonoBehaviour:
   - {fileID: 5212284493061015315, guid: 5d7aa3017266cdb42a000599c16a8885, type: 3}
   - {fileID: 8774739675817843554, guid: ab059753b9befe6418b9d01d19fdc978, type: 3}
   buildingRangeLimit: 5
---- !u!114 &4303489715255431731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3023421765571412189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b78f354fc42f69a47973e22f9a449f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  playerCameraTransform: {fileID: 2121696442365586904}
-  speed: 25
-  screenBorderThickness: 10
-  screenXLimit: {x: -45, y: 45}
-  screenZLimit: {x: -55, y: 35}
 --- !u!1 &5176905223382904658
 GameObject:
   m_ObjectHideFlags: 0

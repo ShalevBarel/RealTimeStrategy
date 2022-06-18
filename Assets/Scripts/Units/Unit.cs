@@ -51,7 +51,6 @@ public class Unit : NetworkBehaviour
         health.SomehtingDied -= HandleSomethingDied; // listen to an event telling if the unit has died
     }
 
-    //[Server]
     private void HandleSomethingDied()
     {
         NetworkServer.Destroy(gameObject);
@@ -72,7 +71,6 @@ public class Unit : NetworkBehaviour
         ClientUnitDespawned?.Invoke(this);
     }
 
-    //[Client]
     public void Select() // alert that a unit has been selected
     {
         if (!hasAuthority) { return; }
@@ -80,7 +78,6 @@ public class Unit : NetworkBehaviour
         onSelected?.Invoke();
     }
 
-    //[Client]
     public void Deselect() // alert that a unit has been deselected
     {
         if (!hasAuthority) { return; }

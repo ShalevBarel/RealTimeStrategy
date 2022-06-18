@@ -24,7 +24,7 @@ public class UnitCommandGiver : MonoBehaviour
         GameOverHandler.ClientGameOver -= ClientHandleGameOver;
     }
 
-    private void Update() // "update" method is being called every frame. this is where we do our constant checking if the player tries to move
+    private void Update() // "update" method is being called every frame. this is where we do our constant checking if the player tries to target enemy object or move
     {
         if(!Mouse.current.rightButton.wasPressedThisFrame) { return; }
 

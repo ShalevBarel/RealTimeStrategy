@@ -1,6 +1,4 @@
 using Mirror;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Targeter : NetworkBehaviour
@@ -30,13 +28,11 @@ public class Targeter : NetworkBehaviour
          this.target = target;
     }
     
-    //[Server]
     public void ClearTarget() // clearing the already targeted
     {
         this.target = null;
     }
 
-    //[Server]
     private void HandleGameOver()
     {
         ClearTarget();

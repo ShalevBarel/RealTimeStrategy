@@ -27,7 +27,6 @@ public class MoneyGenerator : NetworkBehaviour
         GameOverHandler.GameOver -= HandleGameOver;
     }
 
-    //[Server]
     private void Update() // is called every frame
     {
         if (player == null) { return; } // avoid unneccesary error

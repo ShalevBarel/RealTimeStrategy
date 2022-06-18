@@ -1,8 +1,6 @@
 using Mirror;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class GameOverHandler : NetworkBehaviour
 {
@@ -25,13 +23,11 @@ public class GameOverHandler : NetworkBehaviour
         UnitBase.BaseDespawned -= ServerHandleBaseDespawned; // stops listening to an event telling if a base has been despawned
     }
 
-    //[Server]
     private void ServerHandleBaseSpawned(UnitBase unitBase) // adding a base the base list
     {
         bases.Add(unitBase);
     }
 
-    //[Server]
     private void ServerHandleBaseDespawned(UnitBase unitBase) // removing a base from the base list and checking if only 1 player left
     {
         bases.Remove(unitBase);

@@ -1,7 +1,5 @@
 using Mirror;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : NetworkBehaviour
@@ -25,10 +23,9 @@ public class Health : NetworkBehaviour
 
     public override void OnStopServer()
     {
-        UnitBase.PlayerDied += HandlePlayerDied;
+        UnitBase.PlayerDied -= HandlePlayerDied;
     }
 
-    //[Server]
     public void DealDamage(int damageAmount) // dealing damage
     {
         if(currentHealth == 0) { return; }
@@ -40,7 +37,6 @@ public class Health : NetworkBehaviour
         SomehtingDied?.Invoke(); // raising an event for whoever needs to know that somthing has died
     }
 
-    //[Server]
     private void HandlePlayerDied(int playerID)
     {
         if(connectionToClient.connectionId != playerID) { return; }
